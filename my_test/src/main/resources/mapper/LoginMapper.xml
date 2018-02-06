@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.shiro.test.LoginMapper">
+	<resultMap type="cn.shiro.pojo.User" id="userMap">
+		<id column="UID" property="id" jdbcType="CHAR"/>
+        <result column="UNAME" property="username" jdbcType="CHAR"/>
+        <result column="UPASSWORD" property="password" jdbcType="CHAR"/>
+        <result column="UNICKNAME" property="nickname" jdbcType="CHAR"/>
+	</resultMap>
+	
+	<insert id="insert" parameterType="cn.shiro.pojo.User">
+		insert into user 
+		 <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="username != null">
+                UNAME,
+            </if>
+            <if test="password != null">
+                UPASSWORD,
+            </if>
+            <if test="nickname != null">
+                UNICKNAME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=CHAR},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=CHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=CHAR},
+            </if>
+        </trim>
+	</insert>
+	
+	<select id="queryUserByUsername" resultMap="userMap" parameterType="java.lang.String" >
+		select * from user where uname=#{username,jdbcType=VARCHAR}
+	</select>
+
+</mapper>

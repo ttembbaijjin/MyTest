@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.poi.test.PoiMapper">
+	<resultMap type="cn.poi.pojo.Member" id="memberMap">
+		<id column="id" property="id" jdbcType="CHAR"/>
+        <result column="sex" property="sex" jdbcType="CHAR"/>
+        <result column="nick_name" property="nickName" jdbcType="CHAR"/>
+        <result column="create_time" property="createTime" jdbcType="CHAR"/>
+	</resultMap>
+	
+	<select id="queryAllMember" resultMap="memberMap">
+		select id, sex, nick_name, create_time from t_member;
+	</select>
+	
+	
+	
+</mapper>

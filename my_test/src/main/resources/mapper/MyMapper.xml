@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.optimisticLock.MyMapper">
+
+
+	 <select id="getUserById" resultType="cn.optimisticLock.User" parameterType="cn.optimisticLock.User">
+		select * from user where uid = #{uid};
+	</select>
+    
+     <update id="updateUser" parameterType="cn.optimisticLock.User">
+        UPDATE user SET uname = #{user.uname}, version=version+1 
+        WHERE uid = #{user.uid} and version=#{user.version} 
+     </update>
+
+</mapper>

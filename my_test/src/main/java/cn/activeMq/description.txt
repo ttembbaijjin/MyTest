@@ -1,0 +1,10 @@
+springBoot整合activeMq
+
+application.properties中
+spring.activemq.pool.enabled=false //如果此处设置为true，需要加如下的依赖包，否则会自动配置失败，报JmsMessagingTemplate注入失败  
+
+        <dependency>  
+            <groupId>org.apache.activemq</groupId>  
+            <artifactId>activemq-pool</artifactId>  
+            <!-- <version>5.7.0</version> -->  
+        </dependency>
