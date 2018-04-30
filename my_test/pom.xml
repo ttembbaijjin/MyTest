@@ -8,7 +8,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-
+	<!-- 测试新增部分 -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
