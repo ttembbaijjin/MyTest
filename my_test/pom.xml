@@ -4,7 +4,7 @@
 	<groupId>com.spring</groupId>
 	<artifactId>my_test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
+<!-- 002分支合并代码到master测试 -->
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
